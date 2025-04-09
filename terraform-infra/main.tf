@@ -17,12 +17,20 @@ module "iam" {
   project = var.project
 }
 
+module "security_group" {
+  source = "./modules/security_group"
+  vpc_id =  module.vpc.vpc_id
+  project = var.project
+}
+
 module "eks" {
   source = "./modules/eks"
   project = var.project
   subnet_ids = module.vpc.public_subnet_ids
   eks_role_arn =  module.iam.eks_role_arn
   node_group_role_arn = module.iam.node_group_role_arn
+  key_name =  var.key_name
+  node_sg_id = module.security_group.node_group_sg_id
 }
 
 module "ecr" {
@@ -60,4 +68,7 @@ module "helm_charts" {
   project = var.project
   image_repo = module.ecr.repository_url
   image_tag = var.image_tag
+  providers = {
+    helm = helm.eks_helm
+  }
 }

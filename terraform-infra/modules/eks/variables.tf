@@ -13,3 +13,10 @@ variable "eks_role_arn" {
 variable "node_group_role_arn" {
   type = string
 }
+
+variable "node_sg_id" {
+  type = string
+}
+
+variable "key_name" {
+}

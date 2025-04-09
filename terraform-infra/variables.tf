@@ -33,3 +33,7 @@ variable "github_branch" {
 variable "image_tag" {
   type = string
 }
+
+variable "key_name" {
+  
+}

@@ -5,7 +5,7 @@ data "aws_eks_cluster" "this" {
 }
 
 data "aws_eks_cluster_auth" "this"{
-    name = module.eks.cluster_name
+  name = module.eks.cluster_name
 
-    depends_on = [ module.eks ]
+  depends_on = [ module.eks ]
 }
