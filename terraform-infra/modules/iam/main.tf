@@ -69,6 +69,16 @@ resource "aws_iam_role_policy_attachment" "codebuild_policy" {
   policy_arn = "arn:aws:iam::aws:policy/AWSCodeBuildDeveloperAccess"
 }
 
+resource "aws_iam_role_policy_attachment" "codebuild_cni" {
+  role = aws_iam_role.codebuild_role.name
+  policy_arn = "arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy"
+}
+
+resource "aws_iam_role_policy_attachment" "cloudbuild_worker_node" {
+  role = aws_iam_role.codebuild_role.name
+  policy_arn = "arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy"
+}
+
 resource "aws_iam_role_policy_attachment" "codebuild_ssm" {
   role = aws_iam_role.codebuild_role.name
   policy_arn = "arn:aws:iam::aws:policy/AmazonSSMReadOnlyAccess"
