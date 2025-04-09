@@ -1,0 +1,10 @@
+image:
+  repository: "nginx"  # overridden by Terraform
+  tag: "latest"        # overridden by Terraform
+  pullPolicy: IfNotPresent
+
+service:
+  type: LoadBalancer
+  port: 80
+
+containerPort: 8080
