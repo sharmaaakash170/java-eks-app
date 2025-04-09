@@ -33,7 +33,7 @@ module "ecr" {
 module "codebuild" {
   source = "./modules/codebuild"
   project = var.project
-  github_repo = var.github_repo
+  github_repo = "https://github.com/sharmaaakash170/java-eks-app"
   ecr_url = module.ecr.repository_url
   service_role = module.iam.codebuild_role_arn
 }
