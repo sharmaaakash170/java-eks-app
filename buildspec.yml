@@ -21,4 +21,9 @@ phases:
       - echo Pushing the Docker image...
       - docker push $REPOSITORY_URI:latest
       - docker push $REPOSITORY_URI:$CODEBUILD_RESOLVED_SOURCE_VERSION
+      - echo Updating kubeconfig....
+      - aws eks update-kubeconfig --name $EKS_CLUSTER_NAME --region $AWS_REGION
+      - echo Deploying with Helm...
+      - helm upgrade --install java-eks-app-java ./modules/helm-charts/java-app --namespace default --set image.repository=$REPOSITORY_URI,image.tag=latest
       - echo Build completed on `date`
+

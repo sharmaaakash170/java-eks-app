@@ -8,6 +8,6 @@ public class HelloController {
 
   @GetMapping("/")
   public String hello() {
-    return "🚀 Java App deployed successfully on EKS!";
+    return "🚀 Java App deployed successfully on EKS! via CICD Pipeline";
   }
 }
