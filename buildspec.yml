@@ -1,5 +1,9 @@
 version: 0.2
-
+env:
+  variables:
+    EKS_CLUSTER_NAME: java-eks-app-eks-cluster
+    AWS_REGION: us-east-1
+    REPOSITORY_URI: 891062950211.dkr.ecr.us-east-1.amazonaws.com/java-eks-app-java-app
 phases:
   pre_build:
     commands:
