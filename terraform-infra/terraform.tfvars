@@ -4,7 +4,6 @@ public_subnets   = ["10.0.1.0/24", "10.0.2.0/24"]
 private_subnets  = ["10.0.3.0/24", "10.0.4.0/24"]
 azs              = ["us-east-1a", "us-east-1b"]
 github_repo = "https://github.com/sharmaaakash170/java-eks-app.git"
-github_token = "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"
 github_branch = "main"
 github_owner = "sharmaaakash170"
 image_tag = "latest"

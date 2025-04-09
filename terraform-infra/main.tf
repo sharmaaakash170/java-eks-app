@@ -1,3 +1,8 @@
+data "aws_ssm_parameter" "github_token" {
+  name = "github_token"
+  with_decryption = true
+}
+
 module "vpc" {
   source = "./modules/vpc"
   project = var.project
@@ -44,7 +49,7 @@ module "codepipeline" {
   github_owner = var.github_owner
   github_repo_name = var.github_repo
   github_branch = var.github_branch 
-  github_token = var.github_token 
+  github_token = data.aws_ssm_parameter.github_token.value
   artifact_bucket = module.s3.bucket_id
   pipeline_role_arn = module.iam.pipeline_role_arn
   codebuild_project_name = module.codebuild.codebuild_project_name

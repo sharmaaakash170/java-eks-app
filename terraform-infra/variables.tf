@@ -1,6 +1,7 @@
 variable "project" {
   type = string
 }
+
 variable "vpc_cidr" {
   type = string
 }
@@ -18,10 +19,6 @@ variable "azs" {
 }
 
 variable "github_repo" {
-  type = string
-}
-
-variable "github_token" {
   type = string
 }
 
