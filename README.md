@@ -76,9 +76,11 @@ terraform init
 terraform apply
 ✅ Ensure the GitHub token is added to AWS SSM and referenced in Terraform. ✅ A Docker image will be built and pushed automatically.
 
+---
+
 ## 🧠 Learnings
 
-- Deploying Java app on Kubernetes using Helm.
+- Deploying Flask on Kubernetes using Helm.
 - Managing infrastructure with Terraform.
 - Setting up CI/CD pipeline with AWS services.
 - Troubleshooting real-world DevOps issues.
