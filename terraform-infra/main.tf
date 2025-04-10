@@ -44,6 +44,9 @@ module "codebuild" {
   github_repo = "https://github.com/sharmaaakash170/java-eks-app"
   ecr_url = module.ecr.repository_url
   service_role = module.iam.codebuild_role_arn
+  aws_region = var.aws_region
+  repository_url =  module.ecr.repository_url
+  eks_cluster_name = module.eks.cluster_name
 }
 
 module "s3" {

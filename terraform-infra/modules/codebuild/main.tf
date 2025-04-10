@@ -13,9 +13,19 @@ resource "aws_codebuild_project" "java_build" {
     image = "aws/codebuild/standard:7.0"
     privileged_mode = true
     type = "LINUX_CONTAINER"
-    environment_variable{
-      name = "REPOSITORY_URI"
-      value = var.ecr_url
+    environment_variable {
+      name  = "AWS_REGION"
+      value = var.aws_region
+    }
+
+    environment_variable {
+      name  = "EKS_CLUSTER_NAME"
+      value = var.eks_cluster_name
+    }
+
+    environment_variable {
+      name  = "REPOSITORY_URI"
+      value = var.repository_url
     }
   }
   source {

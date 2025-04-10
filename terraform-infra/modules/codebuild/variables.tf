@@ -13,3 +13,7 @@ variable "ecr_url" {
 }
 
 variable "service_role" {}
+variable "aws_region" {}
+variable "repository_url" {}
+variable "eks_cluster_name" {}
+

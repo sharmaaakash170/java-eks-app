@@ -34,6 +34,7 @@ variable "image_tag" {
   type = string
 }
 
-variable "key_name" {
-  
-}
+variable "aws_region" {}
+
+variable "key_name" {}
+
