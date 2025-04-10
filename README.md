@@ -76,6 +76,7 @@ terraform init
 terraform apply
 ✅ Ensure the GitHub token is added to AWS SSM and referenced in Terraform. ✅ A Docker image will be built and pushed automatically.
 
+```
 ---
 
 ## 🧠 Learnings
