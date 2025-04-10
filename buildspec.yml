@@ -35,7 +35,6 @@ phases:
       - echo "Caller Identity:"
       - aws sts get-caller-identity
       - echo Deploying with Helm...
-      - echo ls -lrt
       - helm upgrade --install java-eks-app-java ./terraform-infra/modules/helm-charts/java-app --namespace default --set image.repository=$REPOSITORY_URI,image.tag=latest 
       - echo Build completed on `date`
 

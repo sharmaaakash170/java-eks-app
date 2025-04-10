@@ -71,4 +71,5 @@ module "helm_charts" {
   providers = {
     helm = helm.eks_helm
   }
+  depends_on = [ module.eks ]
 }

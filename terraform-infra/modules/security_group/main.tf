@@ -16,6 +16,26 @@ resource "aws_security_group_rule" "allow_http_from_internet" {
   security_group_id = aws_security_group.node_group_sg.id 
 }
 
+resource "aws_security_group_rule" "allow_10250" {
+  description       = "Allow HTTP access on port 10250"
+  type              = "ingress"
+  from_port         = 10250
+  to_port           = 10250
+  protocol          = "tcp"
+  cidr_blocks       = ["0.0.0.0/0"]
+  security_group_id = aws_security_group.node_group_sg.id 
+}
+
+resource "aws_security_group_rule" "allow_443" {
+  description       = "Allow HTTP access on port 443"
+  type              = "ingress"
+  from_port         = 443
+  to_port           = 443
+  protocol          = "tcp"
+  cidr_blocks       = ["0.0.0.0/0"]
+  security_group_id = aws_security_group.node_group_sg.id 
+}
+
 resource "aws_security_group_rule" "egress_rules" {
   security_group_id = aws_security_group.node_group_sg.id
   type = "egress"
