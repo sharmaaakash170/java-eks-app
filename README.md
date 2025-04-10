@@ -31,17 +31,22 @@ This project demonstrates a **production-level CI/CD pipeline** using:
 
 ```
 java-eks-app/
-├── java-app/               # Java Spring Boot App
-├── terraform-infra/        # Terraform Code
-│   ├── main.tf             # Root Module
+├── java-app/               
+├── terraform-infra/    
+│   ├── main.tf             
+│   ├── provider.tf             
+│   ├── output.tf             
+│   ├── datasource.tf             
+│   ├── variables.tf             
+│   ├── terraform.tfvars             
 │   └── modules/
-│       ├── eks/            # EKS Cluster and Node Group
-│       ├── ecr/            # ECR Module
-│       ├── codebuild/      # Build Config
-│       ├── codepipeline/   # Pipeline Setup
-│       ├── iam/            # All IAM Roles
-│       ├── helm-charts/    # Helm Chart for Java App
-│       └── s3/             # Artifact Bucket
+│       ├── eks/            
+│       ├── ecr/         
+│       ├── codebuild/      
+│       ├── codepipeline/  
+│       ├── iam/            
+│       ├── helm-charts/   
+│       └── s3/             
 ```
 
 ## 🔁 CI/CD Workflow
