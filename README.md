@@ -7,7 +7,6 @@ This project demonstrates a **production-level CI/CD pipeline** using:
 - Helm for Kubernetes deployment
 - CodePipeline + CodeBuild for CI/CD
 - ECR for Docker image storage
-- Prometheus + Grafana for monitoring (added via Helm)
 - S3 for pipeline artifact storage
 - IAM roles for secure access
 - SSM for storing GitHub token securely
@@ -25,23 +24,27 @@ This project demonstrates a **production-level CI/CD pipeline** using:
 | **CodeBuild**  | Docker Build and Image Push              |
 | **CodePipeline**| CI/CD Workflow                          |
 | **SSM**        | Secure GitHub Token Storage              |
-| **Prometheus + Grafana** | Observability & Monitoring    |
 
 ---
 
-## 📂 Folder Structure
+## 📁 Folder Structure
 
-java-eks-app/ ├── java-app/ # Java Spring Boot App ├── terraform-infra/ # Terraform Code │ ├── main.tf # Root Module │ ├── modules/ │ │ ├── eks/ # EKS Cluster and Node Group │ │ ├── ecr/ # ECR Module │ │ ├── codebuild/ # Build Config │ │ ├── codepipeline/ # Pipeline Setup │ │ ├── iam/ # All IAM Roles │ │ ├── helm-charts/ # Helm Chart for Java App │ │ ├── monitoring/ # Prometheus + Grafana via Helm │ │ ├── storage/ # StorageClass and PVC │ │ ├── ebs-csi-driver/ # EBS CSI Addon │ │ └── s3/ # Artifact Bucket
-
-yaml
-Copy
-Edit
-
----
+```
+java-eks-app/
+├── java-app/               # Java Spring Boot App
+├── terraform-infra/        # Terraform Code
+│   ├── main.tf             # Root Module
+│   └── modules/
+│       ├── eks/            # EKS Cluster and Node Group
+│       ├── ecr/            # ECR Module
+│       ├── codebuild/      # Build Config
+│       ├── codepipeline/   # Pipeline Setup
+│       ├── iam/            # All IAM Roles
+│       ├── helm-charts/    # Helm Chart for Java App
+│       └── s3/             # Artifact Bucket
+```
 
 ## 🔁 CI/CD Workflow
-
-![Workflow Diagram](./terraform-infra/workflow.png)
 
 1. ✅ Code pushed to GitHub triggers CodePipeline
 2. ✅ CodeBuild:
@@ -50,8 +53,6 @@ Edit
    - Pushes to Amazon ECR
    - Updates EKS via Helm
 3. ✅ Helm deploys app to Kubernetes on EKS
-4. ✅ Prometheus and Grafana collect & visualize metrics
-
 ---
 
 ## 🔥 Common Error Faced
@@ -67,17 +68,25 @@ Edit
 Run this locally to update your access config:
 ```bash
 kubectl apply -f aws-auth.yaml
+
 🚀 How to Run This Project
-bash
-Copy
-Edit
+
 cd terraform-infra
 terraform init
 terraform apply
-✅ Ensure GitHub token is added to AWS SSM and referenced in Terraform. ✅ Docker image will be built and pushed automatically.
+✅ Ensure the GitHub token is added to AWS SSM and referenced in Terraform. ✅ A Docker image will be built and pushed automatically.
 
-👨‍💻 Author
-Aakash Sharma
-GitHub: sharmaaakash170
-LinkedIn: @aakash-sharma
+## 🧠 Learnings
+
+- Deploying Java app on Kubernetes using Helm.
+- Managing infrastructure with Terraform.
+- Setting up CI/CD pipeline with AWS services.
+- Troubleshooting real-world DevOps issues.
+
+---
+
+## 📎 Author Links
+
+- GitHub: [github.com/sharmaaakash170](https://github.com/sharmaaakash170)
+- LinkedIn: [linkedin.com/in/aakash-sharma-8937b81aa](https://www.linkedin.com/in/aakash-sharma-8937b81aa/)
 
