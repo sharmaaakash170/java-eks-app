@@ -9,3 +9,4 @@ data "aws_eks_cluster_auth" "this"{
 
   depends_on = [ module.eks ]
 }
+
